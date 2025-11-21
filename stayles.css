@@ -1,0 +1,311 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background: url(Photo/background.webp);
+        cursor: url('Photo/camera.png'), auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        cursor: url('Photo/camera.png'), auto !important;
+    }
+    
+    .logo {
+        font-size: 2.5em;
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        color: white;
+        text-shadow: 0 0 10px white;
+        font-weight: 600;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    
+    .navbar {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 70px;
+    }
+    
+    .navbar a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.3em;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    
+    .navbar a:hover {
+        color: #7c4dff;
+        transform: scale(1.00);
+        transition: 0.5s;
+    }
+    /* ====== 📱 الهواتف ====== */
+    
+    @media (max-width: 600px) {
+        /* الشعار + النافبار */
+        .logo {
+            font-size: 1.8em;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .navbar {
+            flex-wrap: wrap;
+            /* يخلي اللينكات جنب بعض لو المساحة تسمح */
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        .navbar a {
+            font-size: 1.1em;
+            padding: 5px;
+        }
+    }
+    
+    .slider {
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        height: 650px;
+        margin-left: 250px;
+        margin-top: 100px;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .slides {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .slide {
+        min-width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    /* overlay text (اختياري) */
+    
+    .caption {
+        position: absolute;
+        bottom: 40px;
+        left: 60px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+    /* arrows */
+    
+    .arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.699);
+        color: #fff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        cursor: pointer;
+        transition: background 0.3s;
+        user-select: none;
+    }
+    
+    .arrow:hover {
+        background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .arrow.left {
+        left: 15px;
+    }
+    
+    .arrow.right {
+        right: 15px;
+    }
+    /* dots */
+    
+    .dots {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+    }
+    
+    .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.719);
+        cursor: pointer;
+        transition: transform 0.3s, background 0.3s;
+    }
+    
+    .dot.active {
+        background: #00b5fd;
+        transform: scale(1.3);
+    }
+    /* الصور المصغرة */
+    
+    .thumbnails {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .thumb {
+        width: 150px;
+        height: 90px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 30px;
+    }
+    
+    .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .thumb:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgb(0, 153, 255);
+    }
+    
+    @media (max-width: 1024px) {
+        .slider {
+            margin-left: 0;
+            width: 95%;
+            height: 450px;
+        }
+        .project-card {
+            margin-left: 0;
+            width: 90%;
+            padding: 30px;
+        }
+        .about-container {
+            margin-left: 0;
+            padding: 0 20px;
+        }
+        .about-img,
+        .img {
+            width: 80%;
+            margin: 20px auto;
+            display: block;
+        }
+        .img-done {
+            width: 50%;
+            margin: 30px auto;
+            display: block;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .slider {
+            width: 100%;
+            height: 300px;
+            margin: 30px auto;
+        }
+        .caption {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            bottom: 20px;
+        }
+        .section-title {
+            font-size: 1.8em;
+            margin-top: 60px;
+        }
+        .projects-container {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .about h1 {
+            font-size: 2em;
+            text-align: center;
+            margin-left: 0;
+        }
+        .about-container {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .about-img,
+        .img {
+            width: 100%;
+            margin: 20px auto;
+        }
+        .card {
+            width: 90%;
+        }
+        .Social {
+            margin-top: 80px;
+        }
+        .social-iconss a {
+            font-size: 1.8em;
+        }
+        .footer {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .footer-title {
+            margin-bottom: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .slider {
+            height: 250px;
+        }
+        .caption {
+            font-size: 0.7rem;
+        }
+        .navbar a {
+            font-size: 1em;
+        }
+        .project-card h3 {
+            font-size: 1.1em;
+        }
+        .about-text {
+            font-size: 0.9em;
+        }
+        .footer-title {
+            font-size: 1em;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .slider {
+            height: 350px;
+        }
+        .caption {
+            font-size: 0.9rem;
+            left: 20px;
+            right: 20px;
+        }
+    }
